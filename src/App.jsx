@@ -5,7 +5,7 @@ import './App.css'; // Will be a simple CSS file
 function App() {
   const [backendData, setBackendData] = useState({});
   // REACT_APP_API_URL will be set by the Ansible .env template
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/message';
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:9001/api/message';
 
   useEffect(() => {
     fetchData();
