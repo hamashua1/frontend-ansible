@@ -14,6 +14,10 @@ function App() {
   const fetchData = async () => {
     try {
       const response = await fetch(API_URL);
+      if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
       const data = await response.json();
       setBackendData(data);
     } catch (error) {
