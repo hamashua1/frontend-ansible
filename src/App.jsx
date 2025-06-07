@@ -8,7 +8,7 @@ function App() {
   const [error, setError] = useState(null);
   
   // API URL with fallback
-  const API_URL = process.env.REACT_APP_API_URL || 'http://56.228.4.89:9001/api/message';
+  const API_URL = process.env.REACT_APP_API_URL || 'http://13.62.57.193:9001/api/message';
 
   const fetchData = async () => {
     setLoading(true);
@@ -20,19 +20,25 @@ function App() {
       const response = await fetch(API_URL, {
         method: 'GET',
         headers: {
+  
           'Content-Type': 'application/json',
         },
-        // Add timeout
+        
+                        // Add timeout
         signal: AbortSignal.timeout(10000) // 10 second timeout
       });
+      console.log ("response" , response) 
+
       
-      console.log('Response status:', response.status);
+      console.log('Response status:', response);
       console.log('Response ok:', response.ok);
       console.log('Response headers:', Object.fromEntries(response.headers.entries()));
       
       if (!response.ok) {
+        
         throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
       }
+        console.log(response)
       
       // Check if response is actually JSON
       const contentType = response.headers.get('content-type');
