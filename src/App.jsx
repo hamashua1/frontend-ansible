@@ -8,7 +8,7 @@ function App() {
   const [error, setError] = useState(null);
   
   // API URL with fallback
-  const API_URL =  'http://13.62.57.193:9001/api/message';
+  const API_URL =  'http://13.62.57.193:9001/api/message'; // API for backend 
 
   const fetchData = async () => {
     setLoading(true);
